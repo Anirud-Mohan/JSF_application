@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>DataTable Example</title>
+<style>
+body{
+font-family : cursive;
+background : linear-gradient(to right, #66ffe0 0%, #002f99e6 96%);
+}
+form{
+width : 700px;
+margin-left :25%;
+display: flex;
+flex-direction: column;
+align-items: center;
+border : 2px solid #81d4fa;
+border-radius : 150px;
+}
+.button{
+font-family: "Lucida Console", "Courier New", monospace;
+background-color: white; 
+border: 2px solid red;
+color: black;
+height : 50px;
+width : 125px;
+border-radius : 20px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+transition-duration: 0.4s;
+cursor: pointer;
+}
+.button:hover {
+background-color: #f44336;
+border: 2px solid black;
+color: white;
+}
+.it{
+padding : 5px;
+border : 2px solid #a5d91d;
+font-family : cursive;
+font-size : 20px;
+border-radius : 20px; 
+height : 30px;
+}
+</style>
+</h:head>
+<h:body>
+<h:form>
+	<h2 style="color: #b9ed19; font-family:cursive;"> The Student Database</h2>
+	<h:dataTable value="#{stu.bookList}" var="s" style="color: black">
+		<h:column>
+			<f:facet name="header"> Student Id  </f:facet>
+			#{s.id}
+		</h:column>
+		<h:column>
+			<f:facet name="header"> Student Name  </f:facet>
+			#{s.name}
+		</h:column>
+        	<h:column>
+			<f:facet name="header"> Phone No  </f:facet>
+			#{s.phoneno}
+		</h:column>
+			<h:column>
+			<f:facet name="header"> Address  </f:facet>
+			#{s.address}
+		</h:column>
+		<h:column>
+			<f:facet name="header"> Action</f:facet>
+			<h:commandLink value="Delete" action="#{stu.deleteAction(s)}" style="color:red;" /> /
+            <h:commandLink value="Edit" action="#{stu.editAction(s)}" style="color:red;" /> 
+		 </h:column>
+	</h:dataTable>
+	<br></br>
+	<br></br>
+	<h2 style="color: #b9ed19; font-family:cursive" >To Add/Update Enter The Details</h2>
+	<table style="color: black">
+	<tr>
+		<td>Student Id :</td>
+        <td><h:inputText size="15" value="#{stu.book.id}" class="it"/></td>    
+	</tr>
+	<tr>
+		<td>Student Name :</td>
+		<td><h:inputText size="15" value="#{stu.book.name}" class="it"/></td>
+	
+	</tr>
+	<tr>
+		<td>Phone No:</td>
+		<td><h:inputText size="15" value="#{stu.book.phoneno}" class="it" /></td>
+	
+	 </tr>
+	<tr>
+		<td>Address :</td>
+		<td><h:inputText size="15" value="#{stu.book.address}" class="it" /></td>
+		
+	</tr>
+	</table>
+	 <h:commandButton class="button" value="Add" action="#{stu.addAction}" disabled="#{stu.enable}" />  
+	 <h:commandButton class="button" value="Update" action="#{stu.updateAction}" disabled="#{stu.disable}" />
+</h:form>
+</h:body>
+</html>

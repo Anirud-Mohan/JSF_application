@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+        <h:head>
+			<title>Student Registration Form</title>
+			<style>
+			body{
+			background-image: linear-gradient(to right, linen, red);
+			font-family : cursive;
+			}
+			
+			input{
+			width : 50%;
+			height : 25px;
+			font-family : cursive;
+			}
+			.student_form{
+			max-width : 500px;
+			margin : 2rem auto;
+			border : 2px green;
+			padding : 10px;
+			}
+			
+			h3{
+			display : block;
+			width : 50%;
+			padding : 5px;
+			}
+			
+			.error
+			{color:blue;}
+			
+			.button{
+			font-family: "Lucida Console", "Courier New", monospace;
+ 			background-color: white; 
+  			border: 2px solid red;
+  			color: black;
+  			height : 50px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 16px;
+  			margin: 4px 2px;
+  			transition-duration: 0.4s;
+  			cursor: pointer;
+  			}
+  			.button:hover {
+  			background-color: #f44336;
+  			border: 2px solid black;
+  			color: white;
+			}
+			</style>
+        </h:head>
+        <h:body>
+            <h:form class="student_form">
+  
+            	<h3>First Name : </h3>
+            	<h:inputText id="fname" value="#{demo.firstName}"></h:inputText>
+            	<br></br>
+            	<br></br>
+            	<h3>Last Name :</h3> 
+            	<h:inputText  value = "#{demo.lastName}" id="last_name" label="Last Name" required = "true" requiredMessage="Your Last Name is Mandatory Here!!"></h:inputText>
+            	<h:message for="last_name" styleClass="error"  />
+            	<br></br>
+            	<br></br>
+            	<h3>Country:</h3>
+            	<!--<h:selectOneMenu value="#{demo.country}">
+            		<f:selectItem itemValue="BRA" itemLabel="Brazil" />
+            		<f:selectItem itemValue="FRA" itemLabel="France" />
+            		<f:selectItem itemValue="IND" itemLabel="India"  />
+            		<f:selectItem itemValue="UK"  itemLabel="United Kingdom" />
+            		<f:selectItem itemValue="USA" itemLabel="United States of America" />         	
+            	
+            	</h:selectOneMenu> -->
+            	<h:selectOneMenu value="#{demo.country}" style="height : 25px;" >
+            		<f:selectItems value="#{demo.countryOptions}" />
+            	</h:selectOneMenu>
+            	<br></br>
+            	<br></br>
+            	<h3>Favorite Programming Language :</h3>
+            	<h:selectOneRadio value="#{demo.favLanguage}" >
+            		<f:selectItem itemValue="Java" itemLabel="Java" />
+            		<f:selectItem itemValue="Python" itemLabel="Python" />
+            		<f:selectItem itemValue="C++" itemLabel="C++" />
+            		<f:selectItem itemValue="PHP" itemLabel="PHP" />
+            	</h:selectOneRadio>
+            	<br></br>
+            	<br></br>
+            	<h3>Favorite Subject :</h3>
+            	<h:message for="Favorite_Subject" styleClass="error" />
+            	<h:selectManyCheckbox value="#{demo.favSubject}" id="Favorite_Subject" label="Favorite Subject" required="true"  requiredMessage="Please check atleast one value....">
+            		<f:selectItem itemValue="Math" itemLabel="Mathematics" />
+            		<f:selectItem itemValue="Computer Science" itemLabel="Computer Science" />
+            		<f:selectItem itemValue="Biology" itemLabel="Biology" />
+            		<f:selectItem itemValue="History" itemLabel="History" />   	
+            	</h:selectManyCheckbox>
+            	<br></br>
+            	<br></br>
+            	<!--Favorite Sport:
+            	<br></br>
+            	<h:selectManyMenu value="{demo.favSport}" id="Favorite_Sport" label="Favorite Sport" required="true" requiredMessage="Please choose any one of the sporting activities from the given options....">
+            		<f:selectItem itemValue="Cricket" itemLabel="Cricket" /><br></br>
+            		<f:selectItem itemValue="Swimming" itemLabel="Swimming" />
+            		<f:selectItem itemValue="Football" itemLabel="Football" />
+            		<f:selectItem itemValue="Table Tennis" itemLabel="Table Tennis" />
+            	</h:selectManyMenu>
+            	<h:message for="Favorite_Sport" styleClass="error" />
+				<br></br>
+            	<br></br> -->
+            	<h3>Email ID :</h3>
+            	<h:inputText value = "#{demo.email}" id="email_id" h3="Email ID" required = "true" requiredMessage="Must enter a valid Email ID!!"></h:inputText>
+            	<br></br>
+            	<h:message for="email_id" styleClass="error"  />
+            	<br></br>
+            	<br></br>
+            	
+            	<h:commandButton value="Submit" class="button" action="Student_response" />
+            
+            </h:form>
+        </h:body>
+    </f:view>
+
+</html>

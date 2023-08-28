@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>JSF add data to data table example.</title>
+</h:head>
+<h:body>
+<h2>JSF add data to data table example.</h2>
+<h:form>
+<h:dataTable value="#{test.agents}" var="agent">
+	<h:column>
+		<f:facet name="header">Agent Name</f:facet>   	
+        #{agent.name}
+       </h:column>
+	<h:column>
+		<f:facet name="header">Agent Role</f:facet>
+          #{agent.agentRole}
+       </h:column>
+	<h:column>
+		<f:facet name="header">Agent No</f:facet>
+          #{agent.agentid}
+       </h:column>
+	<h:column>
+		<f:facet name="header">Agent Age</f:facet>
+      	#{agent.age}
+     </h:column>
+</h:dataTable>
+ 
+<h3>Add agent</h3>
+<hr/>
+<table>
+	<tr>
+		<td>Agent Name:</td>
+		<td><h:inputText size="15" value="#{test.name}" /></td>
+	</tr>
+	<tr>
+		<td>Agent Role:</td>
+		<td><h:inputText size="15" value="#{test.agentRole}" /></td>
+	</tr>
+	<tr>
+		<td>Agent No:</td>
+		<td><h:inputText size="10" value="#{test.agentid}" /></td>
+	</tr>
+	<tr>
+		<td>Agent Age:</td>
+		<td><h:inputText size="3" value="#{test.age}" /></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><h:commandButton value="Add Agent"
+			action="#{test.addAgent}" /></td>
+	</tr>
+</table>
+ 
+</h:form>
+</h:body>
+ 
+</html>

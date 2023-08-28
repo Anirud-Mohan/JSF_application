@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Employee Details</title>
+<style>
+body {
+  background: linear-gradient(to right, #cedf23 0%, #cd2c2c 96%);
+}
+
+td,h2,h4{
+  color: maroon;
+  font-family: "Lucida Console", "Courier New", monospace;;
+}
+</style>
+</head>
+<h:body>
+<h2><h:outputText value="Hello #{employee.name}!!"/></h2>  
+<h4><h:outputText value="You have Registered with us Successfully, Your Details are as follows....."/></h4>  
+<table>  
+<tr>  
+<td><b>Employee Name: </b></td>  
+<td><h:outputText value="#{employee.name}"/><br/></td>  
+</tr>  
+<tr>  
+<td><b>Employee ID:</b></td>  
+<td><h:outputText value="#{employee.eid}"/><br/></td>  
+</tr>  
+<tr>  
+<td><b>Employee Gender:</b></td>  
+<td><h:outputText value="#{employee.gender}"/><br/></td>  
+</tr>  
+<tr>  
+<td><b>Employee Department: </b></td>  
+<td><h:outputText value="#{employee.dept}"/></td>  
+</tr>  
+<tr>  
+<td><b>Employee Age: </b></td>  
+<td><h:outputText value="#{employee.age}"/></td>  
+</tr> 
+</table> 
+</h:body>
+</html>

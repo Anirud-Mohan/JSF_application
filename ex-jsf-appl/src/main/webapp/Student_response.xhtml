@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Student Response Page</title>
+<style>
+body{
+background-image: linear-gradient(to right, linen, lightblue);
+font-family : cursive;
+}
+h2,h4,b{
+width : 50%;
+padding : 5px;
+}
+
+</style>
+</h:head>
+<h:body>
+<h2><h:outputText value="Hello #{demo.firstName} #{demo.lastName}!!"/></h2>  
+<h4><h:outputText value="You have Registered with us Successfully, Your Student Details are as follows....."/></h4>  
+<table>  
+<tr>  
+<td><b>Student First Name: </b></td>  
+<td><h:outputText value="#{demo.firstName}"/><br/></td>  
+</tr>  
+<tr>  
+<td><b>Student Last Name :</b></td>  
+<td><h:outputText value="#{demo.lastName}"/><br/></td>  
+</tr>  
+<tr>  
+<td><b>Student Country :</b></td>  
+<td><h:outputText value="#{demo.country}"/><br/></td>  
+</tr>
+<tr>
+<td><b>Favorite Programming Language :</b></td>
+<td><h:outputText value="#{demo.favLanguage}" /><br/></td>
+</tr>
+<tr>
+<td><b>Favorite Subject :</b></td>
+<td>
+	<ul>
+		<ui:repeat value="#{demo.favSubject}" var="tempSubject" >
+			<li>#{tempSubject}</li>
+			<br></br>
+		</ui:repeat>
+	</ul> 
+	</td>
+</tr>
+
+<tr>
+<td><b>Email ID :</b></td>
+<td><h:outputText value="#{demo.email}" /><br/></td>
+</tr>
+</table> 
+</h:body>
+</html>

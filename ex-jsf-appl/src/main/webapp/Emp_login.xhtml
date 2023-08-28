@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>This is a sample Employee Log-In Page</title>
+<style>
+body{
+background : gray;
+}
+div {
+	border: 3px solid black;
+	background-color : yellow;
+	font-family : cursive;
+	display : flex;
+	flex-direction: column;
+	align-items : center;
+	position : absolute;
+	top : 50%;
+	left : 50%;
+	width : 50%;
+	transform : translate(-50%,-50%);
+	padding : 20px;
+	border-radius : 25px; 
+	
+}
+
+.button {
+	font-family: "Lucida Console", "Courier New", monospace;
+	background-color: white;
+	width : 250px;
+	border: 2px solid red;
+	color: black;
+	height: 50px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.4s;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: #f44336;
+	border: 2px solid black;
+	color: white;
+}
+input[type=text],input[type=password]{
+width : 300px;
+padding : 7px;
+border : 2px solid black;
+}
+</style>
+</h:head>
+<h:body>
+<div>
+<h:form>
+	<h1>Employee Log-In Page</h1>
+	<h3>User Name : </h3>
+	<h:inputText value="#{login.username}" id="empUsername" required = "true" requiredMessage="Your Username is Mandatory Here!!"></h:inputText>
+	<h:message for="empUsername" style="color:purple"  />
+	<br></br>
+	<br></br>
+	<h3>Password : </h3>
+	<h:inputSecret value="#{login.password}" id="empPw" required = "true" requiredMessage="Kindly enter a password...."></h:inputSecret>
+	<h:message for="empPw" style="color:purple" />
+	<br></br>
+	<br></br>
+	<h:commandButton value="Log-In" class="button" action="#{login.verify()}" />
+	</h:form>
+</div>
+</h:body>
+</html>
